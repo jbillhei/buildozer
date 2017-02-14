@@ -13,8 +13,8 @@ if sys.platform == 'win32':
 
 ANDROID_API = '19'
 ANDROID_MINAPI = '9'
-ANDROID_SDK_VERSION = '20'
-ANDROID_NDK_VERSION = '9c'
+ANDROID_SDK_VERSION = '25'
+ANDROID_NDK_VERSION = '13b'
 APACHE_ANT_VERSION = '1.9.4'
 
 import traceback
@@ -526,7 +526,7 @@ class TargetAndroid(Target):
                                                      '')
         app_requirements = self.buildozer.config.getlist('app', 'requirements',
                                                          '')
-
+                                                         
         # we need to extract the requirements that python-for-android knows
         # about
         available_modules = self.get_available_packages()

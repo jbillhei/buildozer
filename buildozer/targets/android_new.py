@@ -43,6 +43,13 @@ class TargetAndroidNew(TargetAndroid):
     def compile_platform(self):
         app_requirements = self.buildozer.config.getlist(
             'app', 'requirements', '')
+
+        # JGB: Hack to fix issue with requirements.
+        # OS X build will fail with hostpython2, while Android requires it.
+        # But android.requirements doesn't seem to catch it.
+        app_requirements.append('hostpython2')
+
+
         onlyname = lambda x: x.split('==')[0]
         dist_name = self.buildozer.config.get('app', 'package.name')
         local_recipes = self.get_local_recipes_dir()
