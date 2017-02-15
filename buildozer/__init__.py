@@ -543,7 +543,7 @@ class Buildozer(object):
             return
         self.venv = join(self.buildozer_dir, 'venv')
         if not self.file_exists(self.venv):
-            self.cmd('virtualenv --python=python2.7 ./venv',
+            self.cmd('virtualenv --python=python2 ./venv',
                     cwd=self.buildozer_dir)
 
         # read virtualenv output and parse it
